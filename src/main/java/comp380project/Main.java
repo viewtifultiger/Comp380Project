@@ -27,6 +27,13 @@ public class Main extends Application {
 
         stage.setTitle("Stock Price Prediction System"); //change name
         stage.setScene(scene);
+        stage.setWidth(500);
+        stage.setHeight(500);
+        stage.setResizable(false);
+        //stage.setX();
+       // stage.setY();
+        //stage.setFullScreen(true);
+
         stage.show();
     }
 
