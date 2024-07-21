@@ -23,9 +23,9 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException { 
         //to create new stage: Stage stage = new Stage();
         Group root = new Group();
-        Scene scene = new Scene(root,Color.BLACK);
+        Scene scene = new Scene(root,Color.BLACK); //change color
 
-        stage.setTitle("Stock Price Prediction System");
+        stage.setTitle("Stock Price Prediction System"); //change name
         stage.setScene(scene);
         stage.show();
     }
