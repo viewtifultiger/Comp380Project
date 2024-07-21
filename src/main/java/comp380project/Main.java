@@ -1,12 +1,16 @@
 package comp380project;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
+import javafx.scene.text.Font;
 
 import java.io.IOException;
 
@@ -22,18 +26,27 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException { 
         //to create new stage: Stage stage = new Stage();
-        Group root = new Group();
-        Scene scene = new Scene(root,Color.BLACK); //change color
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("main.fxml"));
+        Scene scene = new Scene(root,Color.WHITE); //screen color
 
         stage.setTitle("Stock Price Prediction System"); //change name
-        stage.setScene(scene);
-        stage.setWidth(500);
-        stage.setHeight(500);
+        stage.setWidth(500); //changes size of screen
+        stage.setHeight(500); //changes size of screen
         stage.setResizable(false);
-        //stage.setX();
-        //stage.setY();
-        //stage.setFullScreen(true);
+        //changes the location of the screen: stage.setX(); stage.setY();
+        //makes the screen full stage: stage.setFullScreen(true);
 
+        Text text = new Text();
+        text.setText("HELLO");
+        text.setX(50); //changes the location of text
+        text.setY(50); //changes the location of text
+        text.setFont(Font.font("Times New Roman", 60)); //text font & size
+        text.setFill(Color.BLACK); //text color
+
+        
+
+        //root.getChildren().add(text);
+        stage.setScene(scene);
         stage.show();
     }
 
