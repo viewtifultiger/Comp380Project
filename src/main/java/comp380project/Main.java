@@ -31,7 +31,7 @@ public class Main extends Application {
         stage.setHeight(500);
         stage.setResizable(false);
         //stage.setX();
-       // stage.setY();
+        //stage.setY();
         //stage.setFullScreen(true);
 
         stage.show();
