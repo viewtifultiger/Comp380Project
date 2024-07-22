@@ -2,13 +2,10 @@ package comp380project;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
 
@@ -30,8 +27,8 @@ public class Main extends Application {
         Scene scene = new Scene(root,Color.WHITE); //screen color
 
         stage.setTitle("Stock Price Prediction System"); //change name
-        stage.setWidth(500); //changes size of screen
-        stage.setHeight(500); //changes size of screen
+        //stage.setWidth(500); //changes size of screen
+        //stage.setHeight(500); //changes size of screen
         stage.setResizable(false);
         //changes the location of the screen: stage.setX(); stage.setY();
         //makes the screen full stage: stage.setFullScreen(true);
