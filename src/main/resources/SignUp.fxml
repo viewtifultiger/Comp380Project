@@ -9,15 +9,15 @@
 
 <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" styleClass="brown-panel" stylesheets="@main.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp380project.Controller">
    <children>
-      <Label prefHeight="29.0" prefWidth="88.0" text="Sign Up" textFill="WHITE">
+      <Label prefHeight="29.0" prefWidth="88.0" text="Sign Up" textFill="#d6ccc2">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
          <VBox.margin>
             <Insets left="20.0" />
          </VBox.margin>
       </Label>
-      <TextField promptText="First Name:" styleClass="tf-box">
+      <TextField prefHeight="38.0" prefWidth="370.0" promptText="First Name:" styleClass="tf-box">
          <VBox.margin>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>

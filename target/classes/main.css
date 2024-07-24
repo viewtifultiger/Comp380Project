@@ -15,8 +15,8 @@
 .white-pane {
     -fx-background-color: #ffffff;
 }
-.brown-panel {
-    -fx-background-color: #3c2a1f; 
+white-panel {
+    -fx-background-color: white; 
 }
 .tf-box {
     -fx-background-color: transparent;
@@ -26,5 +26,5 @@
 .white-btn {
     -fx-background-color: #d6ccc2;
     -fx-border-radius: 5px;
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: black;
 }
