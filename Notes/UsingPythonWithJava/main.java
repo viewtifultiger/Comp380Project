@@ -60,7 +60,7 @@ Usage:
 
 		// Prototype: public abstract InputStream getInputStream()
 
-		In our case, it returns the "command" attribute created with the "ProcessBuilder" contructor on line __ 
+		In our case, it returns the "command" attribute created with the "ProcessBuilder" contructor on line 114 
 
 	- waitFor()
 
