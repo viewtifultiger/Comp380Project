@@ -3,12 +3,14 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" styleClass="brown-panel" stylesheets="@main.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp380project.Controller">
    <children>
+      <TextField editable="false" styleClass="tf-ibox" />
       <Label prefHeight="29.0" prefWidth="88.0" text="Sign Up" textFill="#d6ccc2">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -17,27 +19,27 @@
             <Insets left="20.0" />
          </VBox.margin>
       </Label>
-      <TextField prefHeight="38.0" prefWidth="370.0" promptText="First Name:" styleClass="tf-box">
+      <TextField fx:id="signUpTextField" onAction="#onSignUpButtonClick" prefHeight="38.0" prefWidth="370.0" promptText="Full Name:" styleClass="tf-box">
          <VBox.margin>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
       </TextField>
-      <TextField layoutX="10.0" layoutY="231.0" promptText="Last Name:" styleClass="tf-box">
+      <TextField fx:id="signUpEmailTextField" layoutX="10.0" layoutY="231.0" onAction="#onSignUpButtonClick" promptText="Email:" styleClass="tf-box">
          <VBox.margin>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
       </TextField>
-      <TextField promptText="Email:" styleClass="tf-box">
+      <PasswordField fx:id="signUpPasswordField" onAction="#onSignUpButtonClick" promptText="Password:" styleClass="tf-box">
          <VBox.margin>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
-      </TextField>
-      <TextField promptText="Password:" styleClass="tf-box">
+      </PasswordField>
+      <PasswordField fx:id="signUpRepeatPasswordField" onAction="#onSignUpButtonClick" promptText="Re-enter Password:" styleClass="tf-box">
          <VBox.margin>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
-      </TextField>
-      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="369.0" styleClass="white-btn" text="Sign Up" VBox.vgrow="ALWAYS">
+      </PasswordField>
+      <Button fx:id="invalidSignup" mnemonicParsing="false" onAction="#onSignUpButtonClick" prefHeight="26.0" prefWidth="369.0" styleClass="white-btn" text="Sign Up" VBox.vgrow="ALWAYS">
          <font>
             <Font size="18.0" />
          </font>
