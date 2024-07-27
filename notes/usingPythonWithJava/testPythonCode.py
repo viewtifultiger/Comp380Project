@@ -3,6 +3,7 @@ def testfunc():
 	example = 2 + 2;
 	print(f"2 + 2 = {example}")
 	print("End of python code")
-	print()
+
+	return 10
 
 testfunc()

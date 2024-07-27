@@ -111,7 +111,7 @@ public class RunPythonScript{
 	public static void main(String[] args) {
 		try {
 			// Create a ProcessBuilder instance
-			ProcessBuilder pb = new ProcessBuilder("python", "testpythoncode.py");	// Initialize command for ProcessBuilder
+			ProcessBuilder pb = new ProcessBuilder("python", "testPythonCode.py");	// Initialize command for ProcessBuilder
 																						// replace testpythoncode.py with your file
 			
 			Process process = pb.start();	// Start the process
@@ -120,7 +120,7 @@ public class RunPythonScript{
 			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 			String line;
 			while ((line = reader.readLine()) != null) {	// read output statements from the .py file
-				System.out.println(line);					// print output from .py file
+				System.out.println(line);
 			}
 
 			// Wait for the process to complete
