@@ -10,9 +10,9 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" />
       <AnchorPane layoutX="133.0" layoutY="75.0" prefHeight="355.0" prefWidth="354.0">
          <children>
-            <Text layoutX="86.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STOCK PREDICTION" textAlignment="CENTER" wrappingWidth="182.87239837646484">
+            <Text layoutX="71.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STOCK PREDICTION" textAlignment="CENTER" wrappingWidth="210.87239837646484">
                <font>
-                  <Font name="Impact" size="34.0" />
+                  <Font name="Times New Roman" size="34.0" />
                </font>
             </Text>
             <Button layoutX="147.0" layoutY="238.0" mnemonicParsing="false" onAction="#open_signup" styleClass="white-btn" text="Sign Up" />

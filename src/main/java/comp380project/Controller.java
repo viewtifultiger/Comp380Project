@@ -33,6 +33,7 @@ public class Controller {
         stage.show();
     }
 
+
     // FXML's controls
     @FXML
     private Button invalidLogin;
@@ -65,11 +66,10 @@ public class Controller {
     String successStyle = String.format("-fx-border-color: #A9A9A9; -fx-border-width: 2; -fx-border-radius: 5;");
 
     @FXML
-    protected void onLoginButtonClick() {
+    protected void onLoginButtonClick(ActionEvent event) throws IOException {
         if (loginTextField.getText().isBlank() || loginPasswordField.getText().isBlank()) {
-            invalidLogin.setText("The Login fields are required!");
+            invalidLogin.setText("Login fields are required!");
             invalidLogin.setStyle(errorMessage);
-            invalidSignup.setText("");
 
             if (loginTextField.getText().isBlank()) {
                 loginTextField.setStyle(errorStyle);
@@ -81,17 +81,19 @@ public class Controller {
             invalidLogin.setStyle(successMessage);
             loginTextField.setStyle(successStyle);
             loginPasswordField.setStyle(successStyle);
-            invalidSignup.setText("");
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("StockSelection.fxml")); 
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
 
     @FXML
-    protected void onSignUpButtonClick() {
-
+    protected void onSignUpButtonClick(ActionEvent event) throws IOException {
         if (signUpTextField.getText().isBlank() || signUpEmailTextField.getText().isBlank() || signUpPasswordField.getText().isBlank() || signUpRepeatPasswordField.getText().isBlank()) {
             invalidSignup.setText("Please fill in all fields!");
             invalidSignup.setStyle(errorMessage);
-            invalidLogin.setText("");
 
             if (signUpTextField.getText().isBlank()) {
                 signUpTextField.setStyle(errorStyle);
@@ -109,13 +111,16 @@ public class Controller {
             signUpEmailTextField.setStyle(successStyle);
             signUpPasswordField.setStyle(successStyle);
             signUpRepeatPasswordField.setStyle(successStyle);
-            invalidLogin.setText("");
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("StockSelection.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } else {
             invalidSignup.setText("Passwords don't match!");
             invalidSignup.setStyle(errorMessage);
             signUpPasswordField.setStyle(errorStyle);
             signUpRepeatPasswordField.setStyle(errorStyle);
-            invalidLogin.setText("");
         }
     }
 }               

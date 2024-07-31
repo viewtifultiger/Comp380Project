@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * JavaFX App
  */
-public class Main extends Application {
+public class Main extends Application { //Main would change to StockPrediction
 
     public static void main(String[] args) {
         launch(args);
@@ -30,7 +30,6 @@ public class Main extends Application {
         stage.setResizable(false);
         //makes the screen full stage: stage.setFullScreen(true);
 
-        //root.getChildren().add(text);
         stage.setScene(scene);
         stage.show();
     }
