@@ -1,8 +1,13 @@
 import papermill as pm
-import scrapbook
+import scrapbook as sb
 
-notebookDir = "./../notebooks/"
+notebookDir = "./../notebooks/Untitled2.ipynb"
+outputDir = "./../notebooks/output/output.ipynb"
 
-pm.execute_notebook(notebookDir + 'Untitled2.ipynb', './../notebooks/output/output.ipynb')
+pm.execute_notebook(notebookDir, outputDir)
 
-pm.inspect_notebook(notebookDir + 'output/output.ipynb')
+nb = sb.read_notebook(outputDir)
+scraps = nb.scraps
+
+nb.reglue('sharable_plot')
+scraps['sharable_plot'].display['data']
