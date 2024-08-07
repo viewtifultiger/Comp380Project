@@ -41,5 +41,10 @@
             <Insets left="15.0" right="15.0" top="10.0" />
          </VBox.margin>
       </Button>
+      <Button fx:id="onBackButtonClick" mnemonicParsing="false" onAction="#onBackButtonClick" prefWidth="50.0" styleClass="white-btn" text="Back">
+         <VBox.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </VBox.margin>
+      </Button>
    </children>
 </VBox>
