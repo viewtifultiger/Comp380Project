@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="24.7.4">
+  <diagram name="Page-1" id="gX2J5zavNNsScxo23VP7">
+    <mxGraphModel dx="1232" dy="1103" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-4" value="GUI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="190" width="500" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-5" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="230" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-7" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="hsBVincEtRJ21eSPy_Rj-5" target="hsBVincEtRJ21eSPy_Rj-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="230" y="340" as="sourcePoint" />
+            <mxPoint x="280" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-10" value="&lt;h1 style=&quot;margin-top: 0px; font-size: 13px;&quot;&gt;&lt;span style=&quot;font-weight: 400; background-color: initial;&quot;&gt;- Provide an interface for the user.&lt;/span&gt;&lt;br&gt;&lt;/h1&gt;&lt;h1 style=&quot;margin-top: 0px; font-size: 13px;&quot;&gt;&lt;span style=&quot;background-color: initial; font-weight: normal;&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial; font-weight: normal;&quot;&gt;Asks user for a stock choice&lt;/span&gt;&lt;/h1&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Provides historical saved data for user&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Provides predicted saved data for user&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Confirm if user wants to generate a prediction&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="230" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-11" value="&lt;h1 style=&quot;margin-top: 0px; font-size: 13px;&quot;&gt;- &lt;span style=&quot;font-weight: normal;&quot;&gt;User&lt;/span&gt;&lt;/h1&gt;&lt;div&gt;- User&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Stock&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="230" width="250" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-12" value="User" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="190" width="500" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-13" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="230" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-14" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" source="hsBVincEtRJ21eSPy_Rj-13" target="hsBVincEtRJ21eSPy_Rj-13" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="820" y="340" as="sourcePoint" />
+            <mxPoint x="870" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-15" value="&lt;h1 style=&quot;margin-top: 0px; font-size: 13px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Choose a stock&lt;/span&gt;&lt;/h1&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Login&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Choose to save historical data&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Choose to save predictions data&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Make a prediction&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Submit a local csv file&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="230" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-16" value="&lt;h1 style=&quot;margin-top: 0px; font-size: 13px;&quot;&gt;- &lt;span style=&quot;font-weight: 400;&quot;&gt;Stock&lt;/span&gt;&lt;/h1&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Stock&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Stock&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="910" y="230" width="250" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-17" value="Online Account" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="450" width="500" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-18" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="490" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-19" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" source="hsBVincEtRJ21eSPy_Rj-18" target="hsBVincEtRJ21eSPy_Rj-18" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="230" y="600" as="sourcePoint" />
+            <mxPoint x="280" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-20" value="&lt;h1 style=&quot;margin-top: 0px; font-size: 13px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Associate a username with user&lt;/span&gt;&lt;/h1&gt;&lt;div&gt;- Associate a password with user&lt;/div&gt;&lt;div&gt;- Associate an API key with user&lt;/div&gt;&lt;div&gt;- Request online stock data&lt;/div&gt;&lt;div&gt;- associate saved data with account&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="490" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-21" value="&lt;h1 style=&quot;margin-top: 0px; font-size: 13px;&quot;&gt;- &lt;span style=&quot;font-weight: normal;&quot;&gt;User&lt;/span&gt;&lt;/h1&gt;&lt;div&gt;- User&lt;/div&gt;&lt;div&gt;- User&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- User&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="490" width="250" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-22" value="Stock" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="450" width="500" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-23" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="490" width="500" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-24" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" source="hsBVincEtRJ21eSPy_Rj-23" target="hsBVincEtRJ21eSPy_Rj-23" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="820" y="600" as="sourcePoint" />
+            <mxPoint x="870" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-25" value="&lt;h1 style=&quot;margin-top: 0px; font-size: 13px;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Save ticker symbol&lt;/span&gt;&lt;/h1&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Save historical data as a CSV file&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;- Save predictions data&lt;/span&gt;&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="490" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="hsBVincEtRJ21eSPy_Rj-26" value="&lt;h1 style=&quot;margin-top: 0px; font-size: 13px;&quot;&gt;&lt;br&gt;&lt;/h1&gt;&lt;div&gt;- User, Stock&lt;/div&gt;&lt;div&gt;- User&lt;/div&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="910" y="490" width="250" height="190" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
