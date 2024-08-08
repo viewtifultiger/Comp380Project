@@ -38,18 +38,18 @@ predictors = ["Close", "Volume", "Open", "High", "Low"] # the predictors list is
 # Note: If we use the Tomorrow and/or Target column(s), it will train our model to use "future" data, which can't happen in the real world. 
 
 horizons = [2,5,60,250,1000]
-# """
-# We will create a variety of rolling averages. If a human analyst is trying to predict if a stock will go up tomorrow, some of the numbers
-# they might look at are if the stock price today is higher than it was last week, higher than it was three months ago, higher than a year
-# ago or five years ago... They might use those inputs to determine if the stock will go up or down tomorrow. This is the information we will 
-# give the algorithm.
+"""
+We will create a variety of rolling averages. If a human analyst is trying to predict if a stock will go up tomorrow, some of the numbers
+they might look at are if the stock price today is higher than it was last week, higher than it was three months ago, higher than a year
+ago or five years ago... They might use those inputs to determine if the stock will go up or down tomorrow. This is the information we will 
+give the algorithm.
 
-# What these horizons are are horizons we want to look at for rolling means. We'll calculate the mean close price the last "2" days, the last
-# trading week, "5" days, the last 3 months or so, "60" trading days, the last year, "250", and the last four years "1000". We'll find the
-# ratio between todays closing price and the closing price in those periods which will help us know if the market went up by a lot?, because
-# if so, it may be due for a downturn. Has the market gone down a lot?, because if so, it may be due for an upswing. This is the information
-# we'll give the algorithm to help it make better predictions. 
-# """
+What these horizons are are horizons we want to look at for rolling means. We'll calculate the mean close price the last "2" days, the last
+trading week, "5" days, the last 3 months or so, "60" trading days, the last year, "250", and the last four years "1000". We'll find the
+ratio between todays closing price and the closing price in those periods which will help us know if the market went up by a lot?, because
+if so, it may be due for a downturn. Has the market gone down a lot?, because if so, it may be due for an upswing. This is the information
+we'll give the algorithm to help it make better predictions. 
+"""
 
 new_predictors = [] # will hold some of the new columns we will create.
 
@@ -67,18 +67,18 @@ for horizon in horizons: # loop through horizons and calculate a rolling average
 
     new_predictors += [ratio_column, trend_column]
 
-# """
-# The NaN's in the first few days are a result of not enough rows prior to the current row to actually compute a rolling average. It is
-# different for trend, because you can't include the current day, because if you did, you would be including todays target in that column
-# which will give you leakage and making your algorithm look amazing, but won't work in the real world. 
-# """
+"""
+The NaN's in the first few days are a result of not enough rows prior to the current row to actually compute a rolling average. It is
+different for trend, because you can't include the current day, because if you did, you would be including todays target in that column
+which will give you leakage and making your algorithm look amazing, but won't work in the real world. 
+"""
 
 
 sp500 = sp500.dropna() # get rid of extra rows using dropna() with the missing rows. 
-# """
-# The data now starts in 1993, because of the close_ratio_1000 and the trend_1000 columns, which is about four years of data to compute
-# those columns. 
-# """
+"""
+The data now starts in 1993, because of the close_ratio_1000 and the trend_1000 columns, which is about four years of data to compute
+those columns. 
+"""
 
 model = RandomForestClassifier(n_estimators = 200, min_samples_split = 50, random_state = 1)
 """Here we initialize our model, where we pass in parameters:
