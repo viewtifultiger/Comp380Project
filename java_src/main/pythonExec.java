@@ -1,6 +1,7 @@
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.io.File;
 
 public class pythonExec{
 
@@ -15,7 +16,7 @@ public class pythonExec{
 			// Create a ProcessBuilder instance
 			ProcessBuilder pb = new ProcessBuilder("python", this.fileName);	// Initialize command for ProcessBuilder
 																						// replace testpythoncode.py with your file
-			
+			pb.directory(new File("../../models"));
 			Process process = pb.start();	// Start the process
 
 			// Get the input stream from process to read the output of the script
