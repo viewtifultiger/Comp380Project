@@ -105,8 +105,12 @@ def predict(train, test, predictors, model):           # this function will wrap
     preds[preds < .6] = 0  # return that the price will go up, but we set to 60% so that model is more confident. It reduces the number
                            # of days that the price will go up, but increase the chance that the model is accurate. We don't want risk. 
 
-    preds = pd.Series(preds, index = test.index, name = "Predictors") # combining model into series
-    combined = pd.concat([test["Target"], preds], axis = 1)           # combining real target data against predicted target data
+    preds = pd.Series(preds, index = test.index, name = "Predictors") # combining model into series 
+
+    recommendations = preds.apply(lambda x: "It is recommended that you should buy this stock at this low price!" if x == 0 else "It is recommended that you should sell your stock at this high price!") # Create the Recommendation column based on the predictions
+    recommendations.name = "Recommendation"
+
+    combined = pd.concat([test["Target"], preds, recommendations], axis = 1)           # combining real target data against predicted target data
     return combined                                                   # combined dataframe 
 
 def backtest(data, model, predictors, start = 2500, step = 250):
@@ -136,6 +140,15 @@ predictions["Predictors"].value_counts() # predictors now have different amount 
                                          # because we changed the threshold. We asked the model to be more confident.
                                          # now we are buy stock on fewer days. But hopefully we will be more accurate on those days. 
 
-accuracy = precision_score(predictions["Target"], predictions["Predictors"])
-print(sp500)
-print(f"Accuracy: {accuracy}")
+#accuracy = precision_score(predictions["Target"], predictions["Predictors"])
+#print(sp500)
+#print(f"Accuracy: {accuracy}")
+
+# Get the most recent prediction
+most_recent_prediction = predictions.iloc[-1]  # Get the last row of the DataFrame
+
+# Print the recommendation based on the most recent prediction
+print(f"Most recent prediction: {most_recent_prediction['Predictors']}")
+print(f"Recommendation: {most_recent_prediction['Recommendation']}")
+
+
