@@ -1,0 +1,1 @@
+print("Hello from Python, this is the second test!")
