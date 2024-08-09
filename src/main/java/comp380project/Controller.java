@@ -84,8 +84,8 @@ public class Controller {
             loginTextField.setStyle(SUCCESS_STYLE);
             loginPasswordField.setStyle(SUCCESS_STYLE);
 
-            // Load new scene
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("StockSelection.fxml"));
+            //Needed to load a new scene
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Homepage.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -142,7 +142,7 @@ public class Controller {
                 signUpRepeatPasswordField.setStyle(SUCCESS_STYLE);
 
                 // Load new scene
-                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("StockSelection.fxml"));
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Homepage.fxml"));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
