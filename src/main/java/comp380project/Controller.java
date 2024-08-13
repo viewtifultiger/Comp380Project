@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,6 +19,7 @@ public class Controller {
     private Stage stage;
     private Scene scene;
     private Parent root;
+
     public void open_signin(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SignIn.fxml")); 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -32,7 +34,13 @@ public class Controller {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }   
+    }
+
+    public void setWelcomeMessage(String message) {
+        if (nameLabel != null) {
+            nameLabel.setText(message);
+        }
+    }
 
     @FXML
     private TextField loginTextField;
@@ -52,6 +60,8 @@ public class Controller {
     private Button invalidSignup;
     @FXML 
     private Button onBackButtonClick;
+    @FXML
+    private Label nameLabel;
 
     private static final String ERROR_MESSAGE_STYLE = "-fx-text-fill: red;";
     private static final String SUCCESS_MESSAGE_STYLE = "-fx-text-fill: green;";
@@ -84,8 +94,15 @@ public class Controller {
             loginTextField.setStyle(SUCCESS_STYLE);
             loginPasswordField.setStyle(SUCCESS_STYLE);
 
+            FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("Homepage.fxml"));
+            Parent root = loader.load();
+
+            // Get the label and set the welcome message
+            Controller controller = loader.getController();
+            controller.setWelcomeMessage("Welcome back, " + email + "!");
+
             //Needed to load a new scene
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Homepage.fxml"));
+           // Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Homepage.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -142,7 +159,7 @@ public class Controller {
                 signUpRepeatPasswordField.setStyle(SUCCESS_STYLE);
 
                 // Load new scene
-                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Homepage.fxml"));
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SignIn.fxml"));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
@@ -160,7 +177,7 @@ public class Controller {
         }
         @FXML
     protected void onBackButtonClick(ActionEvent event) throws IOException {
-        // Load the login page FXML
+        // Load the main page
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Main.fxml"));
         // Get the current stage
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -170,4 +187,6 @@ public class Controller {
         stage.show();
     }
 
+    
+    
 }
