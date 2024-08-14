@@ -11,8 +11,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.IOException;
 
 public class Controller {
@@ -189,7 +192,6 @@ public class Controller {
 
     @FXML
     Button predictor;
-
     @FXML
     Button news;
 
@@ -209,5 +211,32 @@ public class Controller {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();   
+    }
+
+    @FXML
+    private TextField stockInput;
+    @FXML
+    private TextArea outputArea;
+
+    @FXML
+    private void handlePredictButton() {
+        String stockSymbol = stockInput.getText();
+        if (!stockSymbol.isEmpty()) {
+            outputArea.appendText("Predicting for " + stockSymbol + "...\n");
+            try {
+                ProcessBuilder pb = new ProcessBuilder("python", "path/to/testModel.py", stockSymbol);
+                Process process = pb.start();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    outputArea.appendText(line + "\n");
+                }
+                process.waitFor();
+            } catch (Exception e) {
+                outputArea.appendText("Error: " + e.getMessage() + "\n");
+            }
+        } else {
+            outputArea.appendText("Please enter a stock symbol.\n");
+        }
     }
 }
