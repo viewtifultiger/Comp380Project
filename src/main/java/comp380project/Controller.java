@@ -224,7 +224,7 @@ public class Controller {
         if (!stockSymbol.isEmpty()) {
             outputArea.appendText("Predicting for " + stockSymbol + "...\n");
             try {
-                ProcessBuilder pb = new ProcessBuilder("python", "path/to/testModel.py", stockSymbol);
+                ProcessBuilder pb = new ProcessBuilder("python3", "testModel.py", stockSymbol);
                 Process process = pb.start();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
                 String line;
