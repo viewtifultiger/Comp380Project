@@ -187,6 +187,27 @@ public class Controller {
         stage.show();
     }
 
+    @FXML
+    Button predictor;
+
+    @FXML
+    Button news;
+
+    @FXML
+    public void onPredictorButtonClick(ActionEvent event) throws IOException {
+     Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("StockPredictorpage.fxml"));
+     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+     Scene scene = new Scene(root);
+     stage.setScene(scene);
+     stage.show();   
+    }
     
-    
+    @FXML
+    public void onNewsButtonClick(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Stocknewspage.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();   
+    }
 }
