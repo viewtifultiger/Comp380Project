@@ -11,12 +11,15 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
+
 
 public class Controller {
     private Stage stage;
@@ -239,4 +242,5 @@ public class Controller {
             outputArea.appendText("Please enter a stock symbol.\n");
         }
     }
+
 }

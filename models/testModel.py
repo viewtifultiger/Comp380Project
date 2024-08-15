@@ -10,8 +10,11 @@ sp500 = sp500.history(period="max") # query all data starting at the beginning o
 del sp500["Dividends"]
 del sp500["Stock Splits"]
 
-sp500["Tomorrow"] = sp500["Close"].shift(-1) # Create a new column that displays tomorrows price,
-                                             # The current day will not show tomorrows price, which is what we want to predict.
+sp500["Tomorrow"] = sp500["Close"].shift(-1) 
+""" 
+Create a new column that displays tomorrows price 
+The current day will not show tomorrows price, which is what we want to predict. 
+"""
 
 sp500["Target"] = (sp500["Tomorrow"] > sp500["Close"]).astype(int) # Create column that shows if,
                                                                    # tommorrows price > close price

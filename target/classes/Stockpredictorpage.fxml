@@ -11,5 +11,6 @@
       <TextField fx:id="stockInput" layoutX="129.0" layoutY="47.0" promptText="Enter stock: " />
       <Button layoutX="171.0" layoutY="167.0" mnemonicParsing="false" onAction="#handlePredictButton" text="Make Prediction" />
       <TextArea fx:id="outputArea" editable="false" layoutX="326.0" layoutY="167.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField editable="false" layoutX="10.0" layoutY="10.0" styleClass="tf-ibox" />
    </children>
 </AnchorPane>
