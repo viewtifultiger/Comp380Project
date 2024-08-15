@@ -1,5 +1,3 @@
-package utils;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.File;
@@ -8,24 +6,17 @@ import java.io.InputStream;
 public class pythonExec{
 
 	String fileName;	// Contains the filename that will be executed within this class
-	String homeDirectory = "../../";	// Contain directory where python file is located
-	String scriptPath;
+	String ticker;		// Contains the ticker symbol of desired stock
 
-	public pythonExec(String fileName) {
+	public pythonExec(String fileName, String ticker) {
 		this.fileName = fileName;
-	}
-
-	public pythonExec(String fileName, String scriptPath) {
-		this.fileName = fileName;
-		this.scriptPath = scriptPath + fileName;
+		this.ticker = ticker;
 	}
 
 	public void execute() {
 		try {
 			// Create a ProcessBuilder instance
-			ProcessBuilder pb = new ProcessBuilder("python", this.scriptPath);	// Initialize command for ProcessBuilder
-
-			System.out.println(scriptPath);
+			ProcessBuilder pb = new ProcessBuilder("python", this.fileName, ticker);	// Initialize command for ProcessBuilder
 																				
 			// pb.directory(new File(this.homeDirectory));								// Initialize directory of ProcessBuilder
 			Process process = pb.start();										// Start the process; execute command
