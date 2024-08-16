@@ -5,18 +5,19 @@ import java.io.InputStream;
 
 public class pythonExec{
 
-	String fileName;	// Contains the filename that will be executed within this class
+	String file;	// Contains the filePath that will be executed within this class
 	String ticker;		// Contains the ticker symbol of desired stock
+	final String mainDir = "./../pyscripts/";
 
-	public pythonExec(String fileName, String ticker) {
-		this.fileName = fileName;
+	public pythonExec(String file, String ticker) {
+		this.file = file;
 		this.ticker = ticker;
 	}
 
-	public void execute() {
+	public void start() {
 		try {
 			// Create a ProcessBuilder instance
-			ProcessBuilder pb = new ProcessBuilder("python", this.fileName, ticker);	// Initialize command for ProcessBuilder
+			ProcessBuilder pb = new ProcessBuilder("python", mainDir + file, ticker);	// Initialize command for ProcessBuilder
 																				
 			// pb.directory(new File(this.homeDirectory));								// Initialize directory of ProcessBuilder
 			Process process = pb.start();										// Start the process; execute command
