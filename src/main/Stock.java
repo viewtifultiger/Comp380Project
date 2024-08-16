@@ -2,7 +2,7 @@ public class Stock {
 
 	String name;
 	String ticker;		// ticker symbol represents the stock as an abbreviation
-	final String modelDir = "./../stockPredictor.py";
+	final String modelDir = "./../pyscripts/stockPredictor.py";
 
 	public Stock(String ticker) {
 		this.ticker = ticker;
@@ -13,4 +13,7 @@ public class Stock {
 																				// pythonExec takes the ticker symbol as an argument.
 		executable.execute();
 	}
+	// public String getInfo() {
+	// 	pythonExec executable = new pythonExec();
+	// }
 }

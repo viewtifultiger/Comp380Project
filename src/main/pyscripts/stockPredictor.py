@@ -6,9 +6,12 @@ import pandas as pd
 from sklearn.metrics import precision_score # precision_score will analyze predictions with factual data
 from sklearn.ensemble import RandomForestClassifier
 import sys
+import pickle
 
 if __name__ == "__main__":  #!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#! for testing, if this is still here, please remove. 
     print(sys.argv[1])
+
+stockName = sys.argv[1]
 
 """
 Random Forest trains individual decision trees with randomized parameters and then averages the results from those decision trees.
@@ -19,10 +22,17 @@ relationship between the open price and the target. If the open price is higher,
 stock price prediction, most of the relationships are nonlinear. If you can find a linear relationship, then everyone would be rich.
 """
 
-sp500 = yf.Ticker("^GSPC") # initialize ticker class, S&P 500 ticker symbol
+sp500 = yf.Ticker("f^{sys.argv[1]}") # initialize ticker class, S&P 500 ticker symbol
 
-sp500 = sp500.history(period="max") # query all data starting at the beginning of 1990
 
+
+sp500 = sp500.history(period="max") # returns dictionary type
+
+sp500DF = pd.DataFrame(sp500)   # carries converted sp500 into a pandas dataframe
+
+sp500DF.to_pickle(f"./objects/{stockName}_object")
+
+sys.exit()
 del sp500["Dividends"]
 del sp500["Stock Splits"]
 
