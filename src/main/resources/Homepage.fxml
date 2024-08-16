@@ -3,13 +3,14 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp380project.Controller">
    <children>
-      <Label fx:id="nameLabel" layoutX="29.0" layoutY="60.0" prefHeight="34.0" prefWidth="513.0" text="Welcome back">
+      <Label fx:id="nameLabel" layoutX="29.0" layoutY="68.0" prefHeight="34.0" prefWidth="513.0" text="Welcome back">
          <font>
-            <Font size="24.0" />
+            <Font size="22.0" />
          </font>
       </Label>
       <Label layoutX="96.0" layoutY="14.0" prefHeight="29.0" prefWidth="409.0" text="SKY STOCK MARKET">
@@ -17,19 +18,28 @@
             <Font name="Big Caslon Medium" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="29.0" layoutY="135.0" prefHeight="23.0" prefWidth="166.0" text="          Predictor" textAlignment="CENTER">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="predictor" layoutX="63.0" layoutY="226.0" mnemonicParsing="false" onAction="#onPredictorButtonClick" text="Predictor" />
-      <Label layoutX="22.0" layoutY="157.0" prefHeight="65.0" prefWidth="148.0" text="Want to know whether to sell your stock or not? Click here for more information!" textAlignment="JUSTIFY" wrapText="true" />
-      <Label layoutX="423.0" layoutY="135.0" prefHeight="23.0" prefWidth="110.0" text="Market News" textAlignment="CENTER">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="404.0" layoutY="157.0" prefHeight="65.0" prefWidth="134.0" text="Click here for the latest news on your favorite stocks!" textAlignment="JUSTIFY" wrapText="true" />
-      <Button fx:id="news" layoutX="445.0" layoutY="226.0" mnemonicParsing="false" onAction="#onNewsButtonClick" text="News" />
+      <Pane layoutX="42.0" layoutY="135.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d6ccc2;">
+         <children>
+            <Label layoutX="30.0" layoutY="16.0" prefHeight="23.0" prefWidth="166.0" text="          Predictor" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="60.0" prefHeight="65.0" prefWidth="148.0" text="Want to know whether to sell your stock or not? Click here for more information!" textAlignment="JUSTIFY" wrapText="true" />
+            <Button fx:id="predictor" layoutX="57.0" layoutY="145.0" mnemonicParsing="false" onAction="#onPredictorButtonClick" text="Predictor" />
+         </children>
+      </Pane>
+      <Pane layoutX="361.0" layoutY="135.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #d6ccc2;">
+         <children>
+            <Label layoutX="51.0" layoutY="14.0" prefHeight="23.0" prefWidth="110.0" text="Market News" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="57.0" prefHeight="65.0" prefWidth="134.0" text="Click here for the latest news on your favorite stocks!" textAlignment="JUSTIFY" wrapText="true" />
+            <Button fx:id="news" layoutX="71.0" layoutY="141.0" mnemonicParsing="false" onAction="#onNewsButtonClick" prefHeight="26.0" prefWidth="53.0" text="News" />
+         </children>
+      </Pane>
+      <Button fx:id="logoutButton" layoutX="29.0" layoutY="395.0" mnemonicParsing="false" onAction="#handleLogoutAction" prefHeight="26.0" prefWidth="66.0" text="Logout" />
    </children>
 </AnchorPane>

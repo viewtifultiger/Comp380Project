@@ -243,4 +243,16 @@ public class Controller {
         }
     }
 
+    @FXML
+    private Button logoutButton;
+    @FXML
+    private void handleLogoutAction() {
+        // Handle the logout action
+        System.out.println("Logging out...");
+
+        // Close the current window
+        Stage stage = (Stage) logoutButton.getScene().getWindow();
+        stage.close();
+    }   
+
 }
