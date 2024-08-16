@@ -26,6 +26,7 @@ public class Controller {
     private Scene scene;
     private Parent root;
 
+//code to open up login and signup pages in FXML
     public void open_signin(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SignIn.fxml")); 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -48,6 +49,7 @@ public class Controller {
         }
     }
 
+//code for signup and login pages
     @FXML
     private TextField loginTextField;
     @FXML
@@ -220,7 +222,8 @@ public class Controller {
     private TextField stockInput;
     @FXML
     private TextArea outputArea;
-
+    
+//code for prediction page
     @FXML
     private void handlePredictButton() {
         String stockSymbol = stockInput.getText();
