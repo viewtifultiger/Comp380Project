@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * JavaFX App
  */
-public class Main extends Application { //Main would change to StockPrediction
+public class Main extends Application { 
 
     public static void main(String[] args) {
         launch(args);
