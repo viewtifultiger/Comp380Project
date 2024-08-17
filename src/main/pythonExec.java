@@ -24,13 +24,14 @@ public class pythonExec{
 
 			// Get the input stream from process to read the output of the script
 			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-			String line;
-			while ((line = reader.readLine()) != null) {	// read output statements from the .py file
+			String readLine;
+
+			while ((readLine = reader.readLine()) != null) {	// read output statements from the .py file
 				InputStream error = process.getErrorStream();
-				for (int i = 0; i < error.available(); i++) {
-					System.out.println("" + error.read());
-				}
-				System.out.println(line);
+				// for (int i = 0; i < error.available(); i++) {
+				// 	System.out.println("" + error.read());
+				// }
+				System.out.println(readLine);
 			}
 
 			// Wait for the process to complete

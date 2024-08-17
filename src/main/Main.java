@@ -4,7 +4,7 @@ public class Main {
 
 		Stock sp500 = new Stock("GSPC");
 
-		System.out.println(sp500.getName());
+		sp500.getName();
 
 		sp500.predict();
 	}

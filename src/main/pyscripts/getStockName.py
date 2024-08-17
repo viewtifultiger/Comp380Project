@@ -1,9 +1,11 @@
 import pandas as pd
 import pickle
-
-if __name__ == "__main__":  #!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#! for testing, if this is still here, please remove. 
-    print(sys.argv[1])
+import sys
 
 stockName = sys.argv[1]
+mainDir = "./../pyscripts/"
 
-stock = pd.read_pickle(f"objects/{stockName}_object")
+print("reading pickle")
+stock = pd.read_pickle(f"{mainDir}objects/{stockName}_object.pkl")
+
+print(stock.values)
