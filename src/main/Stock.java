@@ -7,20 +7,33 @@ public class Stock {
 	pythonExec executable;
 
 
-
+	// Constructors
 	public Stock(String ticker) {
 		this.ticker = ticker;
+		initStock();
 	}
+
+
+	private void initStock() {
+		executable = new pythonExec("initStock.py", this.ticker);	// command: "python getStockName.py"
+		executable.start();
+		this.name = setName();
+	}
+	private String setName() {
+		executable = new pythonExec("setStockName.py", this.ticker);	// command: "python getStockName.py"
+		return executable.get();
+	}
+
 
 	public void predict() {
 		executable = new pythonExec("stockPredictor.py", this.ticker); // command: "python stockPredictory.py"
-
 		executable.start();
 	}
-	public void getName() {
-		executable = new pythonExec("getStockName.py", this.ticker);	// command: "python getStockName.py"
-		
+	public String getName() {
+		return this.name;
+	}
+	public void printTable() {
+		executable = new pythonExec("printTable.py", this.ticker);
 		executable.start();
-
 	}
 }

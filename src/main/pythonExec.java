@@ -15,6 +15,33 @@ public class pythonExec{
 	}
 
 	public void start() {
+	try {
+		// Create a ProcessBuilder instance
+		ProcessBuilder pb = new ProcessBuilder("python", mainDir + file, ticker);	// Initialize command for ProcessBuilder
+																			
+		// pb.directory(new File(this.homeDirectory));								// Initialize directory of ProcessBuilder
+		Process process = pb.start();										// Start the process; execute command
+
+		// Get the input stream from process to read the output of the script
+		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String readLine;
+
+		while ((readLine = reader.readLine()) != null) {	// read output statements from the .py file
+			System.out.println(readLine);
+		}
+
+		// Wait for the process to complete
+		int exitCode = process.waitFor();
+		System.out.println("Exited with code: " + exitCode);  // 0 - Code ran succesfully; 1 - Failed
+	}
+
+		// 
+		catch (Exception e) {
+			e.printStackTrace();	// print error that occured
+		}
+	}
+
+	public String get() {
 		try {
 			// Create a ProcessBuilder instance
 			ProcessBuilder pb = new ProcessBuilder("python", mainDir + file, ticker);	// Initialize command for ProcessBuilder
@@ -25,23 +52,23 @@ public class pythonExec{
 			// Get the input stream from process to read the output of the script
 			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 			String readLine;
+			StringBuilder buffer = new StringBuilder();
 
 			while ((readLine = reader.readLine()) != null) {	// read output statements from the .py file
-				InputStream error = process.getErrorStream();
-				// for (int i = 0; i < error.available(); i++) {
-				// 	System.out.println("" + error.read());
-				// }
-				System.out.println(readLine);
+				buffer.append(readLine);
 			}
 
 			// Wait for the process to complete
 			int exitCode = process.waitFor();
-			System.out.println("Exited with code: " + exitCode);				// 0 - Code ran succesfully; 1 - Failed
+			System.out.println("Exited with code: " + exitCode);  // 0 - Code ran succesfully; 1 - Failed
+
+			return buffer.toString();
 		}
 
 		// 
 		catch (Exception e) {
 			e.printStackTrace();	// print error that occured
+			return "";
 		}
 	}
 }
