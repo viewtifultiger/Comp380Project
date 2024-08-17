@@ -33,7 +33,6 @@ public class Stock {
 		return this.name;
 	}
 	public void printTable() {
-		executable = new pythonExec("printTable.py", this.ticker);
-		executable.start();
+		csvReader.read(this.ticker);
 	}
 }

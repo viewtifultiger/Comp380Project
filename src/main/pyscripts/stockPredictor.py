@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import yfinance as yf
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.metrics import precision_score # precision_score will analyze predictions with factual data
@@ -8,7 +7,7 @@ from sklearn.ensemble import RandomForestClassifier
 import sys
 import pickleTools as pt
 
-mainDir = "./../pyscripts/objects/"
+objDir = pt.dir.objDir
 ticker = sys.argv[1]
 
 """
@@ -20,7 +19,7 @@ relationship between the open price and the target. If the open price is higher,
 stock price prediction, most of the relationships are nonlinear. If you can find a linear relationship, then everyone would be rich.
 """
 
-sp500 = pt.load_object(f"{mainDir}{ticker}_table")
+sp500 = pt.load_object(f"{objDir}{ticker}_panda")
 
 # sys.exit()                          #!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#! used for testing, please remove if it is still here
 del sp500["Dividends"]

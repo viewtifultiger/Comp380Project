@@ -8,10 +8,7 @@ public class Main {
 
 		sp500.printTable();
 
-		sp500.predict();
-
-
-
 		// sp500.predict();
+
 	}
 }
