@@ -6,9 +6,10 @@ public class Main {
 
 		System.out.println("Name of this stock: " + sp500.getName());
 
-		sp500.printTable();
+		sp500.printCSV();
+		
+		// sp500.printTable();
 
-		// sp500.predict();
-
+		sp500.predict();
 	}
 }

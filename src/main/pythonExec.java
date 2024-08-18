@@ -5,21 +5,20 @@ import java.io.InputStream;
 
 public class pythonExec{
 
-	String file;	// Contains the filePath that will be executed within this class
-	String ticker;		// Contains the ticker symbol of desired stock
-	final String mainDir = "./../pyscripts/";
+	String file;		// Contains the python file name
+	String ticker;		// Contains the ticker symbol of stock
+	final String mainDir = "./../pyscripts/";	// directory to location of python scripts
 
 	public pythonExec(String file, String ticker) {
 		this.file = file;
 		this.ticker = ticker;
 	}
 
-	public void start() {
+	public void start() {	// runs the python file, no return value
 	try {
 		// Create a ProcessBuilder instance
 		ProcessBuilder pb = new ProcessBuilder("python", mainDir + file, ticker);	// Initialize command for ProcessBuilder
 																			
-		// pb.directory(new File(this.homeDirectory));								// Initialize directory of ProcessBuilder
 		Process process = pb.start();										// Start the process; execute command
 
 		// Get the input stream from process to read the output of the script
@@ -41,18 +40,17 @@ public class pythonExec{
 		}
 	}
 
-	public String get() {
+	public String get() {	// runs the python file and receives a String
 		try {
 			// Create a ProcessBuilder instance
 			ProcessBuilder pb = new ProcessBuilder("python", mainDir + file, ticker);	// Initialize command for ProcessBuilder
 																				
-			// pb.directory(new File(this.homeDirectory));								// Initialize directory of ProcessBuilder
 			Process process = pb.start();										// Start the process; execute command
 
 			// Get the input stream from process to read the output of the script
 			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 			String readLine;
-			StringBuilder buffer = new StringBuilder();
+			StringBuilder buffer = new StringBuilder();	// used to save String
 
 			while ((readLine = reader.readLine()) != null) {	// read output statements from the .py file
 				buffer.append(readLine);
