@@ -1,10 +1,15 @@
 #!/usr/bin/env python
 
-import yfinance as yf
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.metrics import precision_score # precision_score will analyze predictions with factual data
 from sklearn.ensemble import RandomForestClassifier
+import sys
+import pickleTools as pt
+
+objDir = pt.dir.objDir
+ticker = sys.argv[1]
+
 """
 Random Forest trains individual decision trees with randomized parameters and then averages the results from those decision trees.
 This model is resistant and harder to overfit. It also runs relatively quickly and can pick up nonlinear tendencies in the data. 
@@ -14,18 +19,14 @@ relationship between the open price and the target. If the open price is higher,
 stock price prediction, most of the relationships are nonlinear. If you can find a linear relationship, then everyone would be rich.
 """
 
-sp500 = yf.Ticker("^GSPC") # initialize ticker class, S&P 500 ticker symbol
+sp500 = pt.load_object(f"{objDir}{ticker}_panda")
 
-sp500 = sp500.history(period="max") # query all data starting at the beginning of 1990
-
+# sys.exit()                          #!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#! used for testing, please remove if it is still here
 del sp500["Dividends"]
 del sp500["Stock Splits"]
 
-sp500["Tomorrow"] = sp500["Close"].shift(-1) 
-""" 
-Create a new column that displays tomorrows price 
-The current day will not show tomorrows price, which is what we want to predict. 
-"""
+sp500["Tomorrow"] = sp500["Close"].shift(-1) # Create a new column that displays tomorrows price,
+                                             # The current day will not show tomorrows price, which is what we want to predict.
 
 sp500["Target"] = (sp500["Tomorrow"] > sp500["Close"]).astype(int) # Create column that shows if,
                                                                    # tommorrows price > close price
