@@ -1,3 +1,4 @@
+package comp380project;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.File;
@@ -17,7 +18,7 @@ public class pythonExec{
 	public void start() {
 	try {
 		// Create a ProcessBuilder instance
-		ProcessBuilder pb = new ProcessBuilder("python", mainDir + file, ticker);	// Initialize command for ProcessBuilder
+		ProcessBuilder pb = new ProcessBuilder("python3", mainDir + file, ticker);	// Initialize command for ProcessBuilder
 																			
 		// pb.directory(new File(this.homeDirectory));								// Initialize directory of ProcessBuilder
 		Process process = pb.start();										// Start the process; execute command
@@ -44,7 +45,7 @@ public class pythonExec{
 	public String get() {
 		try {
 			// Create a ProcessBuilder instance
-			ProcessBuilder pb = new ProcessBuilder("python", mainDir + file, ticker);	// Initialize command for ProcessBuilder
+			ProcessBuilder pb = new ProcessBuilder("python3", mainDir + file, ticker);	// Initialize command for ProcessBuilder
 																				
 			// pb.directory(new File(this.homeDirectory));								// Initialize directory of ProcessBuilder
 			Process process = pb.start();										// Start the process; execute command

@@ -219,34 +219,6 @@ public class Controller {
     }
 
     @FXML
-    private TextField stockInput;
-    @FXML
-    private TextArea outputArea;
-    
-//code for prediction page
-    @FXML
-    private void handlePredictButton() {
-        String stockSymbol = stockInput.getText();
-        if (!stockSymbol.isEmpty()) {
-            outputArea.appendText("Predicting for " + stockSymbol + "...\n");
-            try {
-                ProcessBuilder pb = new ProcessBuilder("python3", "testModel.py", stockSymbol);
-                Process process = pb.start();
-                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    outputArea.appendText(line + "\n");
-                }
-                process.waitFor();
-            } catch (Exception e) {
-                outputArea.appendText("Error: " + e.getMessage() + "\n");
-            }
-        } else {
-            outputArea.appendText("Please enter a stock symbol.\n");
-        }
-    }
-
-    @FXML
     private Button logoutButton;
     @FXML
     private void handleLogoutAction() {

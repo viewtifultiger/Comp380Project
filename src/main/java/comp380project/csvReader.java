@@ -1,3 +1,4 @@
+package comp380project;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,7 +10,8 @@ public class csvReader
 		try {
 			String line;
 
-			BufferedReader br = new BufferedReader(new FileReader("./../csv/" + ticker)+".pkl");
+			//made changes to the next line bc it was giving me an error
+			BufferedReader br = new BufferedReader(new FileReader("./../csv/" + ticker + ".pkl"));
 
 			while((line = br.readLine()) != null) {
 				String[] values = line.split(",");
