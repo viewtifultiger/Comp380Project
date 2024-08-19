@@ -1,8 +1,6 @@
 package comp380project;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.File;
-import java.io.InputStream;
 
 public class pythonExec{
 

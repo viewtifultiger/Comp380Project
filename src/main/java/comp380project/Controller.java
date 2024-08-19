@@ -7,20 +7,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.LineChart;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.IOException;
-
 
 public class Controller {
     private Stage stage;
@@ -233,17 +227,29 @@ public class Controller {
 
     @FXML
     private TextField stockNameField;
+
     @FXML
+    private Button predictButton;
+
+    @FXML
+    private TextArea outputArea;
+
     private Stock stock;
 
     @FXML
-    public void predict() {
+    private void handlePredict() {
         String ticker = stockNameField.getText();
         if (ticker != null && !ticker.isEmpty()) {
             stock = new Stock(ticker);
-            stock.predict();
+            stock.predict();  
+            showPredictionResults();
+        } else {
+            outputArea.appendText("Please enter a valid stock symbol.\n");
         }
     }
 
-
+    private void showPredictionResults() {
+        String tableOutput = stock.printTable();  
+        outputArea.appendText("Stock Data:\n" + tableOutput + "\n");  
+    }
 }

@@ -1,16 +1,6 @@
 package comp380project;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
-
 import javafx.fxml.FXML;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 public class Stock {
 
@@ -44,14 +34,15 @@ public class Stock {
 	public String getName() {
 		return this.name;
 	}
-	public void printTable() {
+	public String printTable() {
 		// csvReader.read(this.ticker);
-		executable = new pythonExec("printTable.py", this.ticker); // command: "python stockPredictory.py"
-		executable.start();
+		pythonExec exec = new pythonExec("printTable.py", this.ticker); // command: "python stockPredictory.py"
+		return exec.get();
 	}
-	public void printCSV() {
-		executable = new pythonExec("csvReader.py", this.ticker);
-		executable.start();
+	public String printCSV() {
+		pythonExec exec = new pythonExec("csvReader.py", this.ticker);
+		return exec.get();
 	}
+
 
 }
