@@ -54,38 +54,4 @@ public class Stock {
 		executable.start();
 	}
 
-	//method to display graph on scenebuilder
-	public void displayGraph(LineChart<String, Number> lineChart) {
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("Stock Prediction for " + this.ticker);
-        String folderPath = "/Users/biancaloera/Desktop/Stock Price Project/comp380project/src/main/csv/";
-        String csvFile = folderPath + this.ticker + "_CSV";
-        File file = new File(csvFile);
-
-        if (file.exists()) {
-            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-                // Skip the header
-                br.readLine();
-
-                String line;
-                String csvSplitBy = ",";
-
-                while ((line = br.readLine()) != null) {
-                    String[] data = line.split(csvSplitBy);
-                    String date = data[0];
-                    double predictedValue = Double.parseDouble(data[1]);
-
-                    series.getData().add(new XYChart.Data<>(date, predictedValue));
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("File not found: " + csvFile);
-        }
-
-        lineChart.getData().clear(); // Clear previous data
-        lineChart.getData().add(series);
-    }
-
 }

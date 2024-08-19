@@ -233,10 +233,7 @@ public class Controller {
 
     @FXML
     private TextField stockNameField;
-
     @FXML
-    private LineChart<String, Number> lineChart;
-
     private Stock stock;
 
     @FXML
@@ -248,10 +245,5 @@ public class Controller {
         }
     }
 
-    @FXML
-    public void displayGraph() {
-        if (stock != null) {
-            stock.displayGraph(lineChart);
-        }
-    }
+
 }
