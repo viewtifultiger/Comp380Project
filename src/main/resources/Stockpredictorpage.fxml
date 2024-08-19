@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -7,21 +10,21 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp380project.Stock">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="comp380project.Controller">
    <children>
       <Label layoutX="161.0" layoutY="20.0" text="Stock Predictor">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Pane layoutX="51.0" layoutY="160.0" prefHeight="38.0" prefWidth="118.0" style="-fx-background-color: #d6ccc2;">
+      <Pane layoutX="24.0" layoutY="128.0" prefHeight="38.0" prefWidth="118.0" style="-fx-background-color: #d6ccc2;">
          <children>
-            <Button layoutX="7.0" layoutY="6.0" mnemonicParsing="false" onAction="#predict" styleClass="tf-ibox" text="Make Prediction" />
+            <Button focusTraversable="false" layoutX="7.0" layoutY="6.0" mnemonicParsing="false" onAction="#predict" prefHeight="26.0" prefWidth="105.0" styleClass="tf-ibox" text="Make Prediction" />
          </children>
       </Pane>
       <Pane layoutX="24.0" layoutY="79.0" prefHeight="38.0" prefWidth="290.0" style="-fx-background-color: #d6ccc2;">
          <children>
-            <TextField fx:id="stockInput" layoutX="125.0" layoutY="6.0" styleClass="tf-box" />
+            <TextField fx:id="stockNameField" layoutX="125.0" layoutY="6.0" styleClass="tf-box" />
             <Label layoutX="10.0" layoutY="10.0" text="Enter stock symbol:">
                <font>
                   <Font name="System Bold" size="14.0" />
@@ -30,6 +33,15 @@
          </children>
       </Pane>
       <Button fx:id="logoutButton" layoutX="520.0" layoutY="352.0" mnemonicParsing="false" onAction="#handleLogoutAction" prefHeight="26.0" prefWidth="66.0" text="Logout" />
-      <TextField layoutX="169.0" layoutY="167.0" onAction="#predict" />
+      <TextField layoutX="154.0" layoutY="134.0" onAction="#predict" />
+      <Button layoutX="24.0" layoutY="200.0" mnemonicParsing="false" onAction="#displayGraph" text="Display graph" />
+      <LineChart fx:id="lineChart" layoutX="134.0" layoutY="190.0" prefHeight="175.0" prefWidth="178.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
    </children>
 </AnchorPane>

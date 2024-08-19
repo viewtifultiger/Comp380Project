@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
@@ -230,4 +231,27 @@ public class Controller {
         stage.close();
     }   
 
+    @FXML
+    private TextField stockNameField;
+
+    @FXML
+    private LineChart<String, Number> lineChart;
+
+    private Stock stock;
+
+    @FXML
+    public void predict() {
+        String ticker = stockNameField.getText();
+        if (ticker != null && !ticker.isEmpty()) {
+            stock = new Stock(ticker);
+            stock.predict();
+        }
+    }
+
+    @FXML
+    public void displayGraph() {
+        if (stock != null) {
+            stock.displayGraph(lineChart);
+        }
+    }
 }

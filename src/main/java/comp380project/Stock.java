@@ -1,8 +1,14 @@
 package comp380project;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 
 import javafx.fxml.FXML;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -12,11 +18,6 @@ public class Stock {
 	String ticker;		// ticker symbol represents the stock as an abbreviation
 	pythonExec executable;
 
-	 //to run in GUI we need a no-argument constructor
-	 public Stock() {
-        this.ticker = ""; 
-        initStock();
-    }
 
 	public Stock(String ticker) {
 		this.ticker = ticker;
@@ -53,13 +54,38 @@ public class Stock {
 		executable.start();
 	}
 
-	//have to add this for scenebuilder
-	@FXML
-    private Button logoutButton;
-    @FXML
-    private void handleLogoutAction() {
-        System.out.println("Logging out...");
-        Stage stage = (Stage) logoutButton.getScene().getWindow();
-        stage.close();
-	}
+	//method to display graph on scenebuilder
+	public void displayGraph(LineChart<String, Number> lineChart) {
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Stock Prediction for " + this.ticker);
+        String folderPath = "/Users/biancaloera/Desktop/Stock Price Project/comp380project/src/main/csv/";
+        String csvFile = folderPath + this.ticker + "_CSV";
+        File file = new File(csvFile);
+
+        if (file.exists()) {
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                // Skip the header
+                br.readLine();
+
+                String line;
+                String csvSplitBy = ",";
+
+                while ((line = br.readLine()) != null) {
+                    String[] data = line.split(csvSplitBy);
+                    String date = data[0];
+                    double predictedValue = Double.parseDouble(data[1]);
+
+                    series.getData().add(new XYChart.Data<>(date, predictedValue));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("File not found: " + csvFile);
+        }
+
+        lineChart.getData().clear(); // Clear previous data
+        lineChart.getData().add(series);
+    }
+
 }
