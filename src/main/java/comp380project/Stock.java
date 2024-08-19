@@ -27,9 +27,9 @@ public class Stock {
 	}
 
 	@FXML
-	public void predict() {
+	public String predict() {
 		executable = new pythonExec("stockPredictor.py", this.ticker); // command: "python stockPredictory.py <ticker>"
-		executable.start();
+		return executable.get();
 	}
 	public String getName() {
 		return this.name;

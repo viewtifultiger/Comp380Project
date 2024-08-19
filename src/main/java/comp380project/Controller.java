@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
@@ -227,12 +229,12 @@ public class Controller {
 
     @FXML
     private TextField stockNameField;
-
     @FXML
     private Button predictButton;
-
     @FXML
     private TextArea outputArea;
+    @FXML
+    private LineChart<String, Number> lineChart;
 
     private Stock stock;
 
@@ -241,15 +243,38 @@ public class Controller {
         String ticker = stockNameField.getText();
         if (ticker != null && !ticker.isEmpty()) {
             stock = new Stock(ticker);
-            stock.predict();  
-            showPredictionResults();
+            String predictionOutput = stock.predict(); 
+            outputArea.appendText("Prediction Result:\n" + predictionOutput + "\n");
+            showPredictionResults(); 
         } else {
             outputArea.appendText("Please enter a valid stock symbol.\n");
-        }
     }
+}
 
     private void showPredictionResults() {
         String tableOutput = stock.printTable();  
         outputArea.appendText("Stock Data:\n" + tableOutput + "\n");  
+        plotPredictionData(tableOutput); //may change
+    }
+
+    private void plotPredictionData(String data) {
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Predicted Stock Prices");
+    
+        String[] lines = data.split("\n");
+        
+        for (String line : lines) {
+           
+            String[] parts = line.split(","); 
+            if (parts.length >= 2) { 
+                String date = parts[0]; 
+                Double value = Double.parseDouble(parts[5]);
+    
+                series.getData().add(new XYChart.Data<>(date, value));
+            }
+        }
+    
+        lineChart.getData().clear(); // Clears previous data
+        lineChart.getData().add(series); // Adds new data
     }
 }
