@@ -18,8 +18,8 @@ For example, the open price is not linearly correlated with the target. If the o
 relationship between the open price and the target. If the open price is higher, it doesn't mean the target price will be higher. In
 stock price prediction, most of the relationships are nonlinear. If you can find a linear relationship, then everyone would be rich.
 """
-
-sp500 = pt.load_object(f"{objDir}{ticker}_panda")
+sp500 = pt.load_object("/Users/biancaloera/Desktop/Stock Price Project/comp380project/src/main/pyscripts/objects/aapl_panda") 
+#sp500 = pt.load_object(f"{objDir}{ticker}_panda")
 
 # sys.exit()                          #!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#!#! used for testing, please remove if it is still here
 del sp500["Dividends"]
