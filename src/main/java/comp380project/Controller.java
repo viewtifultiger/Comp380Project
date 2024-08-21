@@ -46,7 +46,6 @@ public class Controller {
         }
     }
 
-//code for signup and login pages
     @FXML
     private TextField loginTextField;
     @FXML
@@ -113,7 +112,7 @@ public class Controller {
             stage.setScene(scene);
             stage.show();
         } else {
-            invalidLogin.setText("Invalid credentials!");
+            invalidLogin.setText("Invalid login!");
             invalidLogin.setStyle(ERROR_MESSAGE_STYLE);
             loginTextField.setStyle(ERROR_STYLE);
             loginPasswordField.setStyle(ERROR_STYLE);
@@ -250,6 +249,12 @@ public class Controller {
             outputArea.appendText("Please enter a valid stock symbol.\n");
         }   
     }
+    private void showPredictionResults() {
+        String tableOutput = stock.printTable();  
+        outputArea.appendText("Stock Data:\n" + tableOutput + "\n");  
+        plotPredictionData(tableOutput); 
+    }
+
     @FXML
     private void plotChart() {
     if (stock != null) {
@@ -259,47 +264,37 @@ public class Controller {
     } else {
         outputArea.appendText("Please predict a stock first.\n");
     }
-}
-    private void showPredictionResults() {
-        String tableOutput = stock.printTable();  
-        outputArea.appendText("Stock Data:\n" + tableOutput + "\n");  
-        plotPredictionData(tableOutput); //may change
     }
-
+   
     private void plotPredictionData(String data) {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.setName("Open Prices Over Time");
+        series.setName("Stock Prices");
     
-        // Split the data by lines
         String[] lines = data.split("\n");
-    
-        // Start parsing data after recognizing the header row
+
         boolean parsingData = false;
     
         for (String line : lines) {
             if (line.startsWith("Date")) {
-                // Header row found, start parsing subsequent lines
                 parsingData = true;
-                continue; // Skip header row
+                continue; 
             }
     
             if (parsingData) {
-                String[] parts = line.trim().split("\\s+"); // Split by whitespace
+                String[] parts = line.split(","); 
                 if (parts.length >= 2) {
                     try {
-                        // The Date is the first element
-                        String date = parts[0].trim() + " " + parts[1].trim(); // Combine the date and time part
-                        Double openPrice = Double.parseDouble(parts[2].trim()); // Assuming the "Open" price is the third part
+                        String date = parts[0].trim(); 
+                        Double openPrice = Double.parseDouble(parts[1].trim());
     
                         series.getData().add(new XYChart.Data<>(date, openPrice));
-                    } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
+                    } catch (NumberFormatException e) {
                         System.err.println("Skipping invalid data line: " + line);
                     }
                 }
             }
         }
-    
-        lineChart.getData().clear(); // Clear previous data
-        lineChart.getData().add(series); // Add new data
+        lineChart.getData().clear(); // Clears previous data
+        lineChart.getData().add(series); // Adds new data
     }
 }
