@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import platform
 
 # List of required packages
 required_packages = ["yfinance", "matplotlib", "scikit-learn", "venv", "pandas"] # list of all python packages required...
